@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Commands Cards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="Linux Logo">
+    <h1>أوامر لينكس الأساسية</h1>
+  </header>
+
+  <div class="counter" id="counter"></div>
+
+  <div class="wrapper">
+    <button class="nav-btn" onclick="prevCard()">&#10094;</button>
+
+    <div class="scene">
+      <div class="card" id="card">
+
+        <!-- SINGLE FRONT CARD -->
+        <div class="card-face front">
+
+          <div class="command" id="cmd"></div>
+          <h2 id="title"></h2>
+
+          <!-- IMAGE -->
+          <div class="mediaBox" id="mediaBox">
+            <img id="cmdImg" alt="Command image" />
+          </div>
+
+          <!-- SHORT DESC -->
+          <p class="imageShort" id="short"></p>
+
+          <!-- FULL DESCRIPTION -->
+          <p class="fullDesc" id="desc"></p>
+
+          <!-- EXAMPLE -->
+          <div class="example" id="example"></div>
+
+          <!-- COPY BUTTON -->
+          <div class="controls">
+            <button id="copyBtn" onclick="copyCommand()">نسخ الأمر</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <button class="nav-btn" onclick="nextCard()">&#10095;</button>
+  </div>
+
+  <script src="js.js"></script>
+</body>
+</html>
