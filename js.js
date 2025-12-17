@@ -5,7 +5,7 @@ const commands = [
     short: "إظهار محتويات المجلد",
     desc: "يعرض جميع الملفات والمجلدات الموجودة داخل المجلد الحالي.",
     example: "ls -la",
-    img: "images/ls.PNG"
+    img: "ls.PNG"
   },
   {
     cmd: "pwd",
@@ -13,7 +13,7 @@ const commands = [
     short: "معرفة مكانك الحالي",
     desc: "يعرض المسار الكامل للمجلد الحالي الذي تعمل بداخله.",
     example: "pwd",
-    img: "images/pwd.PNG"
+    img: "pwd.PNG"
   },
   {
     cmd: "cd",
@@ -21,7 +21,7 @@ const commands = [
     short: "التنقل بين المجلدات",
     desc: "يستخدم للتنقل من مجلد إلى آخر داخل النظام.",
     example: "cd /home/user",
-    img: "images/cd.PNG"
+    img: "cd.PNG"
   },
   {
     cmd: "mkdir",
@@ -29,7 +29,7 @@ const commands = [
     short: "إنشاء مجلد جديد",
     desc: "يقوم بإنشاء مجلد جديد في المسار الحالي.",
     example: "mkdir MyProject",
-    img: "images/mkdir.PNG"
+    img: "mkdir.PNG"
   },
   {
     cmd: "touch",
@@ -37,7 +37,7 @@ const commands = [
     short: "إنشاء ملف فارغ",
     desc: "ينشئ ملفًا جديدًا فارغًا أو يحدث تاريخ التعديل.",
     example: "touch notes.txt",
-    img: "images/touch.PNG"
+    img: "touch.PNG"
   },
   {
     cmd: "cp",
@@ -45,7 +45,7 @@ const commands = [
     short: "نسخ ملف أو مجلد",
     desc: "ينسخ الملفات أو المجلدات من مكان إلى آخر.",
     example: "cp file.txt backup.txt",
-    img: "images/cp.PNG"
+    img: "cp.PNG"
   },
   {
     cmd: "mv",
@@ -53,7 +53,7 @@ const commands = [
     short: "نقل أو تغيير اسم ملف",
     desc: "يستخدم لنقل الملفات أو إعادة تسميتها.",
     example: "mv old.txt new.txt",
-    img: "images/mv.PNG"
+    img: "mv.PNG"
   },
   {
     cmd: "rm",
@@ -61,7 +61,7 @@ const commands = [
     short: "إزالة الملفات",
     desc: "يحذف الملفات أو المجلدات (يستخدم بحذر).",
     example: "rm file.txt",
-    img: "images/rm.PNG"
+    img: "rm.PNG"
   },
   {
     cmd: "cat",
@@ -69,7 +69,7 @@ const commands = [
     short: "قراءة ملف نصي",
     desc: "يعرض محتوى ملف نصي داخل الطرفية.",
     example: "cat notes.txt",
-    img: "images/cat.PNG"
+    img: "cat.PNG"
   },
   {
     cmd: "chmod",
@@ -77,7 +77,7 @@ const commands = [
     short: "تعديل أذونات الملفات",
     desc: "يغير صلاحيات القراءة والكتابة والتنفيذ للملفات.",
     example: "chmod 755 script.sh",
-    img: "images/chmod.PNG"
+    img: "chmod.PNG"
   }
 ];
 
@@ -133,3 +133,4 @@ function prevCard() {
 }
 
 loadCard();
+
