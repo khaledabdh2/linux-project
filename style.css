@@ -1,25 +1,30 @@
 /* ===== BASE ===== */
+*{ box-sizing:border-box; }
 body{
   margin:0;
   min-height:100vh;
   background:#0f172a;
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family:"Segoe UI", Tahoma, Arial, sans-serif;
   color:#f8fafc;
   display:flex;
   flex-direction:column;
   align-items:center;
   letter-spacing:.2px;
+  padding:0 12px;            /* NEW: safe side padding for small screens */
 }
 
 /* ===== HEADER ===== */
 header{
   width:100%;
+  max-width:520px;           /* NEW: keeps header centered like the card */
   background:#020617;
-  padding:14px 24px;
+  padding:14px 16px;         /* slightly smaller on mobile */
   display:flex;
   align-items:center;
   gap:14px;
   box-shadow:0 4px 20px rgba(0,0,0,.4);
+  border-radius:16px;        /* NEW: nicer on mobile */
+  margin-top:12px;           /* NEW */
 }
 header img{width:42px;height:42px;}
 header h1{
@@ -30,18 +35,24 @@ header h1{
 
 /* ===== COUNTER ===== */
 .counter{
-  margin-top:18px;
+  margin-top:14px;
   font-size:13px;
   color:#94a3b8;
+  text-align:center;
+  width:100%;
+  max-width:520px;
 }
 
 /* ===== LAYOUT ===== */
 .wrapper{
   margin-top:14px;
+  width:100%;
+  max-width:520px;           /* NEW: overall centered container */
   display:grid;
-  grid-template-columns: 70px 340px 70px;
+  grid-template-columns: 70px minmax(0, 340px) 70px;
   align-items:center;
-  column-gap:24px;
+  justify-content:center;    /* NEW */
+  column-gap:16px;
 }
 
 /* ===== NAV BUTTONS ===== */
@@ -59,18 +70,21 @@ header h1{
 
 /* ===== CARD ===== */
 .scene{
-  width:340px;
+  width:100%;
+  max-width:340px;
+  margin:0 auto;             /* NEW: ensure center */
 }
 .card{
   background:#1e293b;
   border-radius:18px;
   padding:18px;
   box-shadow:0 18px 50px rgba(0,0,0,.55);
+  width:100%;                /* NEW */
 }
 
 /* ===== COMMAND ===== */
 .command{
-  font-family: "JetBrains Mono", Consolas, monospace;
+  font-family:"JetBrains Mono", Consolas, monospace;
   background:linear-gradient(135deg,#2563eb,#1d4ed8);
   padding:8px 18px;
   border-radius:999px;
@@ -149,3 +163,34 @@ button{
 }
 button:hover{ background:#1d4ed8; }
 button.copied{ background:#16a34a; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 520px){
+  header{
+    max-width:420px;
+    border-radius:14px;
+  }
+
+  .wrapper{
+    grid-template-columns: 48px minmax(0, 1fr) 48px;  /* NEW: smaller arrows */
+    column-gap:10px;
+  }
+
+  .nav-btn{
+    width:48px;
+    height:64px;
+    font-size:22px;
+    border-radius:12px;
+  }
+
+  .scene{
+    max-width:420px;          /* card can grow to phone width */
+  }
+
+  .mediaBox img{
+    height:120px;
+  }
+
+  .command{ font-size:15px; }
+  h2{ font-size:17px; }
+}
