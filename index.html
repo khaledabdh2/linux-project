@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Linux Commands Cards</title>
+  <title>أوامر لينكس</title>
 
   <style>
     *{box-sizing:border-box}
+
     body{
       margin:0;
       min-height:100vh;
@@ -17,10 +18,8 @@
       flex-direction:column;
       align-items:center;
       padding:0 12px;
-      letter-spacing:.2px;
     }
 
-    /* ===== HEADER ===== */
     header{
       width:100%;
       max-width:1100px;
@@ -36,40 +35,35 @@
     header img{width:42px;height:42px;}
     header h1{margin:0;font-size:20px;font-weight:600;}
 
-    /* ===== MAIN FLEX ===== */
     .main{
       width:100%;
       max-width:1100px;
       margin-top:16px;
       display:flex;
       gap:16px;
-      align-items:flex-start;
-      justify-content:center;
       flex-wrap:wrap;
     }
-    /* RTL:
-       - first element appears on RIGHT
-       - second element appears on LEFT
-       You want info box second => commands first in HTML
-    */
 
-    /* ===== COMMANDS (RIGHT) ===== */
+    /* ===== COMMAND CARD (RIGHT) ===== */
     .commands-area{
       flex:1 1 420px;
       min-width:300px;
     }
+
     .counter{
       text-align:center;
       font-size:13px;
       color:#94a3b8;
       margin-bottom:8px;
     }
+
     .wrapper{
       display:flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       justify-content:center;
     }
+
     .nav-btn{
       width:48px;
       height:64px;
@@ -79,9 +73,8 @@
       color:#fff;
       font-size:22px;
       cursor:pointer;
-      flex:0 0 auto;
     }
-    .nav-btn:hover{ background:#2563eb; }
+    .nav-btn:hover{background:#2563eb}
 
     .card{
       width:100%;
@@ -94,7 +87,7 @@
     }
 
     .command{
-      font-family:"JetBrains Mono", Consolas, monospace;
+      font-family:"JetBrains Mono", monospace;
       background:linear-gradient(135deg,#2563eb,#1d4ed8);
       padding:8px 18px;
       border-radius:999px;
@@ -102,17 +95,11 @@
       display:inline-block;
       direction:ltr;
       font-weight:600;
-      font-size:17px;
     }
 
-    h2{
-      margin:0 0 8px;
-      font-size:18px;
-      font-weight:600;
-      color:#e5e7eb;
-    }
+    h2{margin:0 0 6px;font-size:18px}
 
-    /* IMAGE SHOWING */
+    /* IMAGE CLICK */
     .mediaBox img{
       width:100%;
       height:140px;
@@ -120,92 +107,80 @@
       background:#0b1220;
       border-radius:14px;
       padding:6px;
-      display:block;
+      cursor:pointer;
     }
 
-    .imageShort{
-      margin-top:8px;
-      font-size:14px;
-      font-weight:500;
-      color:#c7d2fe;
+    .hint{
+      font-size:12px;
+      color:#93c5fd;
+      margin-top:6px;
     }
 
-    .fullDesc{
-      margin:6px 0 0;
+    /* FUNCTION (HIDDEN BY DEFAULT) */
+    .functionBox{
+      display:none;
+      margin-top:10px;
+      padding:10px 12px;
+      background:#020617;
+      border-radius:12px;
       font-size:13.5px;
       line-height:1.7;
       color:#e5e7eb;
+      border:1px solid rgba(255,255,255,.08);
     }
+    .functionBox.show{display:block}
 
     .example{
-      width:100%;
+      margin-top:10px;
       background:#020617;
       padding:10px 12px;
       border-radius:12px;
-      font-family:"JetBrains Mono", Consolas, monospace;
+      font-family:"JetBrains Mono", monospace;
       font-size:13px;
-      margin-top:10px;
       direction:ltr;
       color:#a5b4fc;
-      border:1px solid rgba(255,255,255,.08);
-      text-align:left;
-      overflow:auto;
     }
 
-    .controls{
-      margin-top:12px;
-      text-align:center;
-    }
+    .controls{margin-top:12px}
     .controls button{
       background:#2563eb;
       border:none;
       padding:10px 18px;
       border-radius:999px;
       color:#fff;
-      cursor:pointer;
-      font-size:14px;
       font-weight:600;
+      cursor:pointer;
     }
-    .controls button:hover{ background:#1d4ed8; }
-    .controls button.copied{ background:#16a34a; }
+    .controls button.copied{background:#16a34a}
 
     /* ===== INFO BOX (LEFT) ===== */
     .student-box{
       flex:1 1 420px;
       min-width:300px;
     }
+
     .student-grid{
       background:linear-gradient(135deg,#1e3a8a,#0b1220);
       border-radius:18px;
       padding:16px;
-      box-shadow:0 18px 50px rgba(0,0,0,.55);
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:12px;
+      box-shadow:0 18px 50px rgba(0,0,0,.55);
     }
+
     .s-card{
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.08);
       border-radius:14px;
-      padding:12px 14px;
+      padding:12px;
     }
-    .s-card.wide{ grid-column:1 / -1; }
-    .s-label{
-      font-size:12px;
-      color:#c7d2fe;
-      margin-bottom:6px;
-      font-weight:600;
-    }
-    .s-value{
-      font-size:14px;
-      font-weight:600;
-      line-height:1.7;
-      color:#f8fafc;
-    }
+    .s-card.wide{grid-column:1/-1}
+    .s-label{font-size:12px;color:#c7d2fe}
+    .s-value{font-size:14px;font-weight:600}
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 860px){
-      .main{ flex-direction:column; }
+    @media(max-width:860px){
+      .main{flex-direction:column}
     }
   </style>
 </head>
@@ -213,30 +188,31 @@
 <body>
 
 <header>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png" alt="Linux Logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png">
   <h1>أوامر لينكس الأساسية</h1>
 </header>
 
 <div class="main">
 
-  <!-- FIRST => RIGHT (because RTL) -->
+  <!-- COMMAND CARD -->
   <section class="commands-area">
     <div class="counter" id="counter"></div>
 
     <div class="wrapper">
       <button class="nav-btn" onclick="prevCard()">‹</button>
 
-      <div class="card" id="card">
+      <div class="card">
         <div class="command" id="cmd"></div>
         <h2 id="title"></h2>
 
-        <!-- IMAGE ELEMENT (DISPLAYED) -->
-        <div class="mediaBox" id="mediaBox">
-          <img id="cmdImg" alt="Command image" />
+        <div class="mediaBox">
+          <img id="cmdImg" onclick="toggleFunction()" />
         </div>
 
-        <p class="imageShort" id="short"></p>
-        <p class="fullDesc" id="desc"></p>
+        <div class="hint">اضغط على الصورة لعرض وظيفة الأمر</div>
+
+        <div class="functionBox" id="functionBox"></div>
+
         <div class="example" id="example"></div>
 
         <div class="controls">
@@ -248,7 +224,7 @@
     </div>
   </section>
 
-  <!-- SECOND => LEFT -->
+    <!-- SECOND => LEFT -->
   <section class="student-box">
     <div class="student-grid">
 
@@ -290,6 +266,7 @@
     </div>
   </section>
 
+
 </div>
 
 <script>
@@ -306,57 +283,43 @@
     { cmd:"chmod", title:"تغيير الصلاحيات",    short:"تعديل أذونات الملفات",   desc:"يغير صلاحيات القراءة والكتابة والتنفيذ للملفات.",          example:"chmod 755 script.sh", img:"chmod.PNG" }
   ];
 
-  let index = 0;
 
-  const counter = document.getElementById("counter");
-  const copyBtn = document.getElementById("copyBtn");
+let index=0;
 
-  const cmd = document.getElementById("cmd");
-  const title = document.getElementById("title");
-  const short = document.getElementById("short");
-  const desc = document.getElementById("desc");
-  const example = document.getElementById("example");
-  const cmdImg = document.getElementById("cmdImg");
+const cmd=document.getElementById("cmd");
+const title=document.getElementById("title");
+const functionBox=document.getElementById("functionBox");
+const example=document.getElementById("example");
+const cmdImg=document.getElementById("cmdImg");
+const counter=document.getElementById("counter");
+const copyBtn=document.getElementById("copyBtn");
 
-  function loadCard() {
-    const c = commands[index];
+function loadCard(){
+  const c=commands[index];
+  cmd.textContent=c.cmd;
+  title.textContent=c.title;
+  functionBox.textContent=c.desc;
+  functionBox.classList.remove("show");
+  example.textContent=c.example;
+  cmdImg.src=c.img;
+  counter.textContent=`${index+1} / ${commands.length}`;
+}
 
-    cmd.textContent = c.cmd;
-    title.textContent = c.title;
-    short.textContent = c.short;
-    desc.textContent = c.desc;
-    example.textContent = c.example;
+function toggleFunction(){
+  functionBox.classList.toggle("show");
+}
 
-    cmdImg.src = c.img;
+function copyCommand(){
+  navigator.clipboard.writeText(commands[index].cmd);
+  copyBtn.textContent="تم النسخ ✓";
+  copyBtn.classList.add("copied");
+  setTimeout(()=>{copyBtn.textContent="نسخ الأمر";copyBtn.classList.remove("copied");},1200);
+}
 
-    counter.textContent = `${index + 1} / ${commands.length}`;
+function nextCard(){index=(index+1)%commands.length;loadCard();}
+function prevCard(){index=(index-1+commands.length)%commands.length;loadCard();}
 
-    copyBtn.textContent = "نسخ الأمر";
-    copyBtn.classList.remove("copied");
-  }
-
-  function copyCommand() {
-    navigator.clipboard.writeText(commands[index].cmd).then(() => {
-      copyBtn.textContent = "تم النسخ ✓";
-      copyBtn.classList.add("copied");
-      setTimeout(() => {
-        copyBtn.textContent = "نسخ الأمر";
-        copyBtn.classList.remove("copied");
-      }, 1200);
-    });
-  }
-
-  function nextCard() {
-    index = (index + 1) % commands.length;
-    loadCard();
-  }
-
-  function prevCard() {
-    index = (index - 1 + commands.length) % commands.length;
-    loadCard();
-  }
-
-  loadCard();
+loadCard();
 </script>
 
 </body>
